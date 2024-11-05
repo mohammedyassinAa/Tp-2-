@@ -13,12 +13,12 @@ public class Tp2main {
 	        setChambres.add(new Chambre(102, "Standard", 2, true));
 	        setChambres.add(new Chambre(103, "Deluxe", 3, true));
 	        setChambres.add(new Chambre(104, "Suite", 2, false));
-	        
+	        marquerIndisponibleChambres(setChambres);
 	        System.out.println(setChambres);
 	        // 1. Supprimer une chambre
-//	        supprimerChambre(104, setChambres);
+	        supprimerChambre(104, setChambres);
+	        
 	}
-
 
 
 // Méthode pour supprimer une chambre du Set si elle est disponible
@@ -38,4 +38,17 @@ public class Tp2main {
 	    System.out.println("Chambre non trouvée.");
 	    return false;
 }
+	
+	//2
+	  // Méthode pour marquer comme non disponible les chambres ayant une capacité < 3
+	    public static void marquerIndisponibleChambres(Set<Chambre> setChambres) {
+	        for (Chambre chambre : setChambres) {
+	            if (chambre.getCapacite() < 3) {
+	                chambre.setDisponible(false);
+	                System.out.println("Chambre " + chambre.getNumChambre() + " marquée comme non disponible.");
+	            }
+	        }
+	    }
+	
 }
+
